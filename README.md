@@ -29,7 +29,7 @@ There are three API provisioned in this app
    In body you need to provide username & password. Use the same which you have provided during environment variable setup for USERNAME & PASSWORD. The API return a n JWT token valid for 1 hour.
    Example:
 
-   Request:
+   EXAMPLE Request:
    curl -XPOST -H "Content-type: application/json" -d '{
     "username": "tejas",
     "password": "password"}' 'http://localhost:5000//login'
@@ -43,7 +43,7 @@ There are three API provisioned in this app
    API -> http://localhost:5000/aws/api/v1/create-vpc
    In body you need to provide cidr_block, region & number of subnet to create. You also need to provide Authorization header with Bearer token received from Authentication API
 
-   Request:
+   EXAMPLE Request:
    curl -XPOST -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMTMxLCJleHAiOjE3NTE5ODI4MjV9.xS70L5DGsUSADj507avUEmnhHsumRbZqTwEYigZhEUs' -H "Content-type: application/json" -d '{
     "cidr_block": "192.168.0.0/24",
     "region": "ap-south-1",
@@ -71,7 +71,7 @@ There are three API provisioned in this app
    API -> http://localhost:5000/aws/api/v1/<region\>/vpc/\<vpc-id\>
    In URL you need to provide region & vpc id. ou also need to provide Authorization header with Bearer token received from Authentication API
 
-   Request:
+   EXAMPLE Request:
    curl -XGET -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMTMxLCJleHAiOjE3NTE5ODI4MjV9.xS70L5DGsUSADj507avUEmnhHsumRbZqTwEYigZhEUs' 'http://localhost:5000/aws/api/v1/ap-south-1/vpc/vpc-0a31061e38bc70016'
 
    Response:
