@@ -64,11 +64,18 @@ def create_vpc_with_subnets(cidr_block, num_subnets, region="ap-south-1"):
 
 @app.route("/aws/api/v1/<region>/vpc/<vpc_id>", methods=["GET"])
 def get_vpc(region, vpc_id):
-    ec2 = boto3.client("ec2", region_name=region)
-    vpc_details = ec2.describe_vpcs(VpcIds=[vpc_id])["Vpcs"][0]
-    print(vpc_details)
-    subnets = ec2.describe_subnets(Filters=[{"Name": "vpc-id", "Values": [vpc_id]}])["Subnets"]
-    return jsonify({"vpc": vpc_details, "subnets": subnets}), 200
+    token = request.headers.get('Authorization')
+    if token:
+        err, msg = check_token(token)
+        if err:
+            return jsonify({'message': msg}), 401
+        ec2 = boto3.client("ec2", region_name=region)
+        vpc_details = ec2.describe_vpcs(VpcIds=[vpc_id])["Vpcs"][0]
+        print(vpc_details)
+        subnets = ec2.describe_subnets(Filters=[{"Name": "vpc-id", "Values": [vpc_id]}])["Subnets"]
+        return jsonify({"vpc": vpc_details, "subnets": subnets}), 200
+    else:
+        return jsonify({'message': 'Token not provided'}), 401
 
 @app.route("/aws/api/v1/create-vpc", methods=["POST"])
 def create_vpc():
