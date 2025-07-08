@@ -68,7 +68,7 @@ There are three API provisioned in this app
      }
 
 4. Get VPC details
-   API -> http://localhost:5000/aws/api/v1/\<region\>/vpc/\<vpc-id\>
+   API -> http://localhost:5000/aws/api/v1/<region\>/vpc/\<vpc-id\>
    In URL you need to provide region & vpc id. ou also need to provide Authorization header with Bearer token received from Authentication API
 
    Request:
