@@ -50,22 +50,22 @@ There are three API provisioned in this app
     "num_subnets": 2
   }' 'http://localhost:5000/aws/api/v1/create-vpc'
 
-  Response:
-  {
-    "subnets": [
-      {
-        "AvailabilityZone": "ap-south-1b",
-        "CidrBlock": "192.168.0.0/25",
-        "SubnetId": "subnet-066afc5507ee2a54d"
-      },
-      {
-        "AvailabilityZone": "ap-south-1b",
-        "CidrBlock": "192.168.0.128/25",
-        "SubnetId": "subnet-02884ff9a23c59132"
-      }
-    ],
-    "vpc_id": "vpc-0a31061e38bc70016"
-  }
+     Response:
+     {
+       "subnets": [
+         {
+           "AvailabilityZone": "ap-south-1b",
+           "CidrBlock": "192.168.0.0/25",
+           "SubnetId": "subnet-066afc5507ee2a54d"
+         },
+         {
+           "AvailabilityZone": "ap-south-1b",
+           "CidrBlock": "192.168.0.128/25",
+           "SubnetId": "subnet-02884ff9a23c59132"
+         }
+       ],
+       "vpc_id": "vpc-0a31061e38bc70016"
+     }
 
 3. Get VPC details
    API -> http://localhost:5000/aws/api/v1/<region>/vpc/<vpc-id>
