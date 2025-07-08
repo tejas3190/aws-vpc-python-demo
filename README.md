@@ -25,9 +25,9 @@ APIs
 There are three API provisioned in this app 
 
 1. Login or Authentication
-   API -> POST http://localhost:5000/login \n
-   In body you need to provide username & password. Use the same which you have provided during environment variable setup for USERNAME & PASSWORD. The API return a n JWT token valid for 1 hour.\n 
-   Example:\n
+   API -> POST http://localhost:5000/login
+   In body you need to provide username & password. Use the same which you have provided during environment variable setup for USERNAME & PASSWORD. The API return a n JWT token valid for 1 hour.
+   Example:
 
    Request:
    curl -XPOST -H "Content-type: application/json" -d '{
@@ -39,9 +39,9 @@ There are three API provisioned in this app
     "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMTMxLCJleHAiOjE3NTE5ODI4MjV9.xS70L5DGsUSADj507avUEmnhHsumRbZqTwEYigZhEUs"
    }
 
-2. Create VPC & Subnet 
-   API -> http://localhost:5000/aws/api/v1/create-vpc \n
-   In body you need to provide cidr_block, region & number of subnet to create. You also need to provide Authorization header with Bearer token received from Authentication API \n
+3. Create VPC & Subnet 
+   API -> http://localhost:5000/aws/api/v1/create-vpc
+   In body you need to provide cidr_block, region & number of subnet to create. You also need to provide Authorization header with Bearer token received from Authentication API
 
    Request:
    curl -XPOST -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMTMxLCJleHAiOjE3NTE5ODI4MjV9.xS70L5DGsUSADj507avUEmnhHsumRbZqTwEYigZhEUs' -H "Content-type: application/json" -d '{
@@ -67,9 +67,9 @@ There are three API provisioned in this app
        "vpc_id": "vpc-0a31061e38bc70016"
      }
 
-3. Get VPC details
-   API -> http://localhost:5000/aws/api/v1/\<region\>/vpc/\<vpc-id\> \n
-   In URL you need to provide region & vpc id. ou also need to provide Authorization header with Bearer token received from Authentication API \n
+4. Get VPC details
+   API -> http://localhost:5000/aws/api/v1/\<region\>/vpc/\<vpc-id\>
+   In URL you need to provide region & vpc id. ou also need to provide Authorization header with Bearer token received from Authentication API
 
    Request:
    curl -XGET -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMTMxLCJleHAiOjE3NTE5ODI4MjV9.xS70L5DGsUSADj507avUEmnhHsumRbZqTwEYigZhEUs' 'http://localhost:5000/aws/api/v1/ap-south-1/vpc/vpc-0a31061e38bc70016'
